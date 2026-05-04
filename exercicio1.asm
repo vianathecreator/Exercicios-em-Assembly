@@ -1,6 +1,7 @@
 .data
 	msg1: .asciiz "\nDigite a largura: "
 	msg2: .asciiz "\nDigite a altura: "
+	msg3: .asciiz "\nàrea: "
 	
 .text
 main:
@@ -22,3 +23,11 @@ main:
 	add $t1, $v0, 0
 
 	mul $t2, $t0, $t1
+	
+	li $v0, 4
+	la $a0, msg3
+	syscall
+	
+	add $a0, $t2, 0
+	li $v0, 1
+	syscall
